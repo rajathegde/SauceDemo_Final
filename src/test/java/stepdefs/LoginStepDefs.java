@@ -41,7 +41,7 @@ public class LoginStepDefs {
 		pass.sendKeys(password);
 	}
 
-	
+
 	@And("^Clicks on Login Button$")
 	public void clicks_on_login_button() throws Throwable {
 
@@ -49,21 +49,22 @@ public class LoginStepDefs {
 		btn_sign.click();
 
 	}
-	
+
 	@Then("^User Should be on the Products Page$")
 	public void user_should_be_on_the_products_page() throws Throwable {
 		WebElement check_status = driver.findElement(By.xpath("//span[text()='Products']"));
-		
+
 		String Expected ="PRODUCTS";
 		Assert.assertEquals(Expected, check_status.getText());
 	}
-	
-	@Then("^User Should Get \"([^\"]*)\"$")
-    public void user_should_get_something(String error) throws Throwable {
-      WebElement error_button = driver.findElement(By.xpath("//h3[contains(text(),'Epic sadface: Username and password do not match any user in this service')]"));
-      Assert.assertEquals(error, error_button.getText());
-    }
 
+	@Then("^User Should Get \"([^\"]*)\"$")
+	public void user_should_get_something(String error) throws Throwable {
+		WebElement error_button = driver.findElement(By.xpath("//h3[contains(text(),'Epic sadface: Username and password do not match any user in this service')]"));
+		Assert.assertEquals(error, error_button.getText());
+	}
+
+	
 
 
 
